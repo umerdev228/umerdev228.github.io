@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Umer - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+      body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+<nav class="p-5 bg-gray-800 flex justify-between items-center">
+  <h1 class="text-2xl font-bold">Muhammad Umer</h1>
+  <ul class="flex gap-6">
+    <li><a href="#about" class="hover:text-blue-400">About</a></li>
+    <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+    <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+    <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="flex flex-col items-center justify-center h-screen text-center">
+  <h1 class="text-5xl font-extrabold">Hello, I'm <span class="text-blue-400" id="typing"></span></h1>
+  <p class="mt-4 text-lg">Full Stack Developer | Laravel | Vue.js | Node.js | Electron.js</p>
+</section>
+
+<script>
+  const roles = ["Full Stack Developer", "Laravel Expert", "Vue.js Developer", "Shopify App Developer"];
+  let i = 0;
+  function typeEffect() {
+    document.getElementById("typing").textContent = roles[i];
+    i = (i + 1) % roles.length;
+    setTimeout(typeEffect, 2000);
+  }
+  typeEffect();
+</script>
+
+<section id="about" class="p-10">
+  <h2 class="text-3xl font-bold text-center mb-6">About Me</h2>
+  <p class="text-center max-w-3xl mx-auto">I'm a passionate developer with over 6 years of experience specializing in Laravel, Vue.js, and Electron.js. I build scalable web applications, desktop apps, and Shopify integrations.</p>
+</section>
+
+<section id="skills" class="p-10 bg-gray-800">
+  <h2 class="text-3xl font-bold text-center mb-6">Skills</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+    <span class="p-3 bg-gray-700 rounded"><i class="fa-brands fa-laravel text-red-500"></i> Laravel</span>
+    <span class="p-3 bg-gray-700 rounded"><i class="fa-brands fa-vuejs text-green-400"></i> Vue.js</span>
+    <span class="p-3 bg-gray-700 rounded"><i class="fa-brands fa-node text-green-500"></i> Node.js</span>
+    <span class="p-3 bg-gray-700 rounded"><i class="fa-solid fa-desktop text-yellow-500"></i> Electron.js</span>
+    <span class="p-3 bg-gray-700 rounded"><i class="fa-solid fa-code text-blue-500"></i> Tailwind CSS</span>
+  </div>
+</section>
+
+<section id="projects" class="p-10">
+  <h2 class="text-3xl font-bold text-center mb-6">Projects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">Shopify Customer Portal</h3>
+      <p class="mt-2">A dashboard for Shopify customers to manage their orders.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">Meeting Recorder App</h3>
+      <p class="mt-2">An Electron-based app to record meetings with both mic and speaker audio.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">SMS & WhatsApp Marketing App</h3>
+      <p class="mt-2">Developed a marketing automation tool for sending bulk messages via SMS & WhatsApp.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">AI Chatbot Integration</h3>
+      <p class="mt-2">Implemented an AI-driven chatbot to enhance customer interactions in Laravel applications.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">Interactive Flipbook</h3>
+      <p class="mt-2">Built an interactive Flipbook application using Vue.js for digital publishing.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">Real Estate Application</h3>
+      <p class="mt-2">Developed a Laravel & Vue.js-based real estate management platform.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold">Multiple Electron Applications</h3>
+      <p class="mt-2">Built various Electron.js applications for offline data processing, screen recording, and automation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="p-10 bg-gray-800 text-center">
+  <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+  <div class="flex justify-center gap-6 text-lg">
+    <a href="mailto:umerdev228@gmail.com" class="hover:text-blue-400"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/umerdev228" class="hover:text-blue-400"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/muhammad-umer-18b2b42b5/" class="hover:text-blue-400"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="https://www.upwork.com/freelancers/~01821b9705dd1d1efb" class="hover:text-blue-400"><i class="fa-brands fa-upwork"></i> Upwork</a>
+    <a href="https://www.fiverr.com/umer_dev" class="hover:text-blue-400"><i class="fa-brands fa-fiverr"></i> Fiverr</a>
+  </div>
+</section>
+</body>
+</html>
