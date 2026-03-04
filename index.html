@@ -1,102 +1,1463 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Umer - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
-      body { font-family: 'Poppins', sans-serif; }
-  </style>
-</head>
-<body class="bg-gray-900 text-white">
-<nav class="p-5 bg-gray-800 flex justify-between items-center">
-  <h1 class="text-2xl font-bold">Muhammad Umer</h1>
-  <ul class="flex gap-6">
-    <li><a href="#about" class="hover:text-blue-400">About</a></li>
-    <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
-    <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
-    <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-  </ul>
-</nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Umer — Full Stack Developer & AI Engineer</title>
+    <meta
+      name="description"
+      content="Muhammad Umer — Full Stack Developer with 6+ years of experience in Laravel, Vue.js, Node.js, Electron.js, and AI integrations. Available for hire."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            animation: {
+              "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+              "fade-in": "fadeIn 1s ease-out forwards",
+              "slide-in-left": "slideInLeft 0.6s ease-out forwards",
+              float: "float 6s ease-in-out infinite",
+              "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              fadeIn: { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
+              slideInLeft: {
+                "0%": { opacity: "0", transform: "translateX(-30px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              pulseGlow: {
+                "0%, 100%": { boxShadow: "0 0 5px rgba(59,130,246,0.5)" },
+                "50%": {
+                  boxShadow:
+                    "0 0 20px rgba(59,130,246,0.8), 0 0 40px rgba(59,130,246,0.3)",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
 
-<section class="flex flex-col items-center justify-center h-screen text-center">
-  <h1 class="text-5xl font-extrabold">Hello, I'm <span class="text-blue-400" id="typing"></span></h1>
-  <p class="mt-4 text-lg">Full Stack Developer | Laravel | Vue.js | Node.js | Electron.js</p>
-</section>
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-<script>
-  const roles = ["Full Stack Developer", "Laravel Expert", "Vue.js Developer", "Shopify App Developer"];
-  let i = 0;
-  function typeEffect() {
-    document.getElementById("typing").textContent = roles[i];
-    i = (i + 1) % roles.length;
-    setTimeout(typeEffect, 2000);
-  }
-  typeEffect();
-</script>
+      /* Glow border on hover */
+      .card-glow {
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+      .card-glow:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow:
+          0 0 20px rgba(59, 130, 246, 0.15),
+          0 8px 32px rgba(0, 0, 0, 0.3);
+        transform: translateY(-4px);
+      }
 
-<section id="about" class="p-10">
-  <h2 class="text-3xl font-bold text-center mb-6">About Me</h2>
-  <p class="text-center max-w-3xl mx-auto">I'm a passionate developer with over 6 years of experience specializing in Laravel, Vue.js, and Electron.js. I build scalable web applications, desktop apps, and Shopify integrations.</p>
-</section>
+      /* Typing cursor */
+      #typing::after {
+        content: "|";
+        animation: blink 1s step-end infinite;
+        color: #3b82f6;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
 
-<section id="skills" class="p-10 bg-gray-800">
-  <h2 class="text-3xl font-bold text-center mb-6">Skills</h2>
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
-    <span class="p-3 bg-gray-700 rounded"><i class="fa-brands fa-laravel text-red-500"></i> Laravel</span>
-    <span class="p-3 bg-gray-700 rounded"><i class="fa-brands fa-vuejs text-green-400"></i> Vue.js</span>
-    <span class="p-3 bg-gray-700 rounded"><i class="fa-brands fa-node text-green-500"></i> Node.js</span>
-    <span class="p-3 bg-gray-700 rounded"><i class="fa-solid fa-desktop text-yellow-500"></i> Electron.js</span>
-    <span class="p-3 bg-gray-700 rounded"><i class="fa-solid fa-code text-blue-500"></i> Tailwind CSS</span>
-  </div>
-</section>
+      /* Profile image ring */
+      .profile-ring {
+        background: conic-gradient(
+          from 0deg,
+          #3b82f6,
+          #8b5cf6,
+          #06b6d4,
+          #3b82f6
+        );
+        padding: 4px;
+        border-radius: 50%;
+      }
 
-<section id="projects" class="p-10">
-  <h2 class="text-3xl font-bold text-center mb-6">Projects</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">Shopify Customer Portal</h3>
-      <p class="mt-2">A dashboard for Shopify customers to manage their orders.</p>
-    </div>
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">Meeting Recorder App</h3>
-      <p class="mt-2">An Electron-based app to record meetings with both mic and speaker audio.</p>
-    </div>
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">SMS & WhatsApp Marketing App</h3>
-      <p class="mt-2">Developed a marketing automation tool for sending bulk messages via SMS & WhatsApp.</p>
-    </div>
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">AI Chatbot Integration</h3>
-      <p class="mt-2">Implemented an AI-driven chatbot to enhance customer interactions in Laravel applications.</p>
-    </div>
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">Interactive Flipbook</h3>
-      <p class="mt-2">Built an interactive Flipbook application using Vue.js for digital publishing.</p>
-    </div>
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">Real Estate Application</h3>
-      <p class="mt-2">Developed a Laravel & Vue.js-based real estate management platform.</p>
-    </div>
-    <div class="bg-gray-800 p-6 rounded shadow-lg hover:shadow-2xl transition">
-      <h3 class="text-xl font-bold">Multiple Electron Applications</h3>
-      <p class="mt-2">Built various Electron.js applications for offline data processing, screen recording, and automation.</p>
-    </div>
-  </div>
-</section>
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s ease;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-<section id="contact" class="p-10 bg-gray-800 text-center">
-  <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
-  <div class="flex justify-center gap-6 text-lg">
-    <a href="mailto:umerdev228@gmail.com" class="hover:text-blue-400"><i class="fa-solid fa-envelope"></i> Email</a>
-    <a href="https://github.com/umerdev228" class="hover:text-blue-400"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/muhammad-umer-18b2b42b5/" class="hover:text-blue-400"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="https://www.upwork.com/freelancers/~01821b9705dd1d1efb" class="hover:text-blue-400"><i class="fa-brands fa-upwork"></i> Upwork</a>
-    <a href="https://www.fiverr.com/umer_dev" class="hover:text-blue-400"><i class="fa-brands fa-fiverr"></i> Fiverr</a>
-  </div>
-</section>
-</body>
+      /* Nav glass effect */
+      .nav-glass {
+        background: rgba(17, 24, 39, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Badge */
+      .badge {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 9999px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* Live dot */
+      .live-dot {
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        display: inline-block;
+        animation: livePulse 2s ease-in-out infinite;
+      }
+      @keyframes livePulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+        }
+        50% {
+          box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+        }
+      }
+
+      /* Hamburger */
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      /* Background particles */
+      .bg-dots {
+        background-image: radial-gradient(
+          rgba(59, 130, 246, 0.15) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
+      }
+
+      /* Counter */
+      .counter {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-gray-100">
+    <!-- ======== NAVBAR ======== -->
+    <nav
+      class="nav-glass fixed top-0 w-full z-50 transition-all duration-300"
+      id="navbar"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-xl font-bold tracking-tight">
+          <span class="gradient-text">M</span>uhammad
+          <span class="gradient-text">U</span>mer
+        </a>
+        <!-- Desktop menu -->
+        <ul class="hidden md:flex gap-8 items-center text-sm font-medium">
+          <li>
+            <a href="#about" class="hover:text-blue-400 transition">About</a>
+          </li>
+          <li>
+            <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+          </li>
+          <li>
+            <a href="#projects" class="hover:text-blue-400 transition"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="#live-work" class="hover:text-blue-400 transition"
+              >Live Work</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-blue-400 transition"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="mailto:umerdev228@gmail.com"
+              class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-full text-white text-sm font-semibold transition shadow-lg shadow-blue-600/20"
+            >
+              Hire Me
+            </a>
+          </li>
+        </ul>
+        <!-- Mobile hamburger -->
+        <button
+          class="md:hidden text-2xl"
+          onclick="
+            document.getElementById('mobileMenu').classList.toggle('open')
+          "
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <!-- Mobile dropdown -->
+      <div
+        id="mobileMenu"
+        class="mobile-menu flex-col gap-4 px-6 pb-6 md:hidden text-sm font-medium"
+      >
+        <a href="#about" class="hover:text-blue-400 py-2">About</a>
+        <a href="#skills" class="hover:text-blue-400 py-2">Skills</a>
+        <a href="#projects" class="hover:text-blue-400 py-2">Projects</a>
+        <a href="#live-work" class="hover:text-blue-400 py-2">Live Work</a>
+        <a href="#contact" class="hover:text-blue-400 py-2">Contact</a>
+        <a
+          href="mailto:umerdev228@gmail.com"
+          class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-full text-white text-sm font-semibold text-center mt-2"
+          >Hire Me</a
+        >
+      </div>
+    </nav>
+
+    <!-- ======== HERO ======== -->
+    <section
+      class="relative min-h-screen flex items-center bg-dots overflow-hidden"
+      id="hero"
+    >
+      <!-- Decorative blobs -->
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-2 gap-12 items-center w-full"
+      >
+        <!-- Left: Text -->
+        <div class="animate-fade-in-up order-2 md:order-1">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="live-dot"></span>
+            <span class="text-green-400 text-sm font-medium"
+              >Available for opportunities</span
+            >
+          </div>
+          <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4">
+            Hi, I'm<br />
+            <span class="gradient-text">Muhammad Umer</span>
+          </h1>
+          <h2 class="text-xl md:text-2xl text-gray-400 font-medium mb-2">
+            I build <span class="text-white font-semibold" id="typing"></span>
+          </h2>
+          <p class="text-gray-400 leading-relaxed max-w-lg mb-8">
+            Full Stack Developer with
+            <strong class="text-white">6+ years</strong> of experience crafting
+            scalable web apps, AI-powered solutions, desktop applications, and
+            Shopify integrations.
+          </p>
+
+          <!-- CTA buttons -->
+          <div class="flex flex-wrap gap-4 mb-10">
+            <a
+              href="#projects"
+              class="bg-blue-600 hover:bg-blue-500 px-7 py-3 rounded-full text-white font-semibold transition shadow-lg shadow-blue-600/25 flex items-center gap-2"
+            >
+              <i class="fa-solid fa-rocket text-sm"></i> View My Work
+            </a>
+            <a
+              href="#contact"
+              class="border border-gray-600 hover:border-blue-400 px-7 py-3 rounded-full text-white font-semibold transition flex items-center gap-2"
+            >
+              <i class="fa-solid fa-paper-plane text-sm"></i> Get In Touch
+            </a>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="flex gap-8">
+            <div>
+              <div
+                class="text-3xl font-bold gradient-text counter"
+                data-target="6"
+              >
+                0
+              </div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">
+                Years Exp.
+              </div>
+            </div>
+            <div>
+              <div
+                class="text-3xl font-bold gradient-text counter"
+                data-target="50"
+              >
+                0
+              </div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">
+                Projects
+              </div>
+            </div>
+            <div>
+              <div
+                class="text-3xl font-bold gradient-text counter"
+                data-target="30"
+              >
+                0
+              </div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">
+                Happy Clients
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Profile picture -->
+        <div class="flex justify-center order-1 md:order-2 animate-fade-in">
+          <div class="relative">
+            <div class="profile-ring animate-float">
+              <img
+                src="profile.png"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://ui-avatars.com/api/?name=Muhammad+Umer&background=3b82f6&color=fff&size=400&font-size=0.35&bold=true';
+                "
+                alt="Muhammad Umer"
+                class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover bg-gray-800"
+              />
+            </div>
+            <!-- Floating badges -->
+            <div
+              class="absolute -bottom-2 -right-2 bg-gray-800 border border-gray-700 px-4 py-2 rounded-xl shadow-xl animate-fade-in"
+              style="animation-delay: 0.5s"
+            >
+              <span class="text-2xl">&#x1F680;</span>
+              <span class="text-sm font-semibold">Full Stack</span>
+            </div>
+            <div
+              class="absolute top-4 -left-4 bg-gray-800 border border-gray-700 px-4 py-2 rounded-xl shadow-xl animate-fade-in"
+              style="animation-delay: 0.8s"
+            >
+              <span class="text-2xl">&#x1F916;</span>
+              <span class="text-sm font-semibold">AI Engineer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 text-xs animate-bounce"
+      >
+        <span>Scroll Down</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- ======== ABOUT ======== -->
+    <section id="about" class="py-24 px-6 relative">
+      <div class="max-w-5xl mx-auto reveal">
+        <div class="text-center mb-12">
+          <span class="badge bg-blue-600/10 text-blue-400 mb-4">About Me</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3">
+            Turning Ideas Into
+            <span class="gradient-text">Digital Reality</span>
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              I'm a passionate
+              <strong class="text-white"
+                >Full Stack Developer & AI Engineer</strong
+              >
+              with over 6 years of hands-on experience building production-grade
+              applications. I specialize in
+              <strong class="text-white"
+                >Laravel, Vue.js, Node.js, and Electron.js</strong
+              >, delivering end-to-end solutions from concept to deployment.
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              My recent focus has been on integrating
+              <strong class="text-white">AI and machine learning</strong>
+              capabilities into web applications — from OpenAI-powered chatbots
+              and AI content generators to intelligent automation workflows
+              using LangChain and custom NLP pipelines.
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              I've delivered
+              <strong class="text-white">50+ projects</strong> across industries
+              including e-commerce, healthcare, real estate, hospitality, and
+              education. I thrive in fast-paced environments and love solving
+              complex technical challenges.
+            </p>
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition"
+            >
+              Let's work together
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center card-glow"
+            >
+              <i class="fa-solid fa-code text-3xl text-blue-400 mb-3"></i>
+              <h4 class="font-bold text-lg">Full Stack</h4>
+              <p class="text-gray-500 text-sm mt-1">Laravel, Vue, Node</p>
+            </div>
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center card-glow"
+            >
+              <i class="fa-solid fa-robot text-3xl text-purple-400 mb-3"></i>
+              <h4 class="font-bold text-lg">AI / ML</h4>
+              <p class="text-gray-500 text-sm mt-1">OpenAI, LangChain</p>
+            </div>
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center card-glow"
+            >
+              <i class="fa-solid fa-desktop text-3xl text-cyan-400 mb-3"></i>
+              <h4 class="font-bold text-lg">Desktop Apps</h4>
+              <p class="text-gray-500 text-sm mt-1">Electron.js</p>
+            </div>
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center card-glow"
+            >
+              <i class="fa-brands fa-shopify text-3xl text-green-400 mb-3"></i>
+              <h4 class="font-bold text-lg">Shopify</h4>
+              <p class="text-gray-500 text-sm mt-1">Apps & Integrations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== SKILLS ======== -->
+    <section id="skills" class="py-24 px-6 bg-gray-900/50">
+      <div class="max-w-6xl mx-auto reveal">
+        <div class="text-center mb-14">
+          <span class="badge bg-blue-600/10 text-blue-400 mb-4"
+            >My Toolkit</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold mt-3">
+            Skills & <span class="gradient-text">Technologies</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Backend -->
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-server text-red-400"></i>
+              </div>
+              <h3 class="font-bold text-lg">Backend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Laravel</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >PHP</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Node.js</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Express.js</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >REST APIs</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >GraphQL</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >WebSockets</span
+              >
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-brands fa-vuejs text-green-400"></i>
+              </div>
+              <h3 class="font-bold text-lg">Frontend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Vue.js</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Nuxt.js</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >React</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Tailwind CSS</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >JavaScript</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >TypeScript</span
+              >
+            </div>
+          </div>
+
+          <!-- AI & Machine Learning -->
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow relative overflow-hidden"
+          >
+            <div class="absolute top-3 right-3">
+              <span
+                class="badge bg-purple-500/20 text-purple-300 text-[0.65rem]"
+                >HOT</span
+              >
+            </div>
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-brain text-purple-400"></i>
+              </div>
+              <h3 class="font-bold text-lg">AI & Machine Learning</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >OpenAI API</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >LangChain</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >RAG</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >AI Chatbots</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >NLP</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Prompt Engineering</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >AI Agents</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Vector DBs</span
+              >
+            </div>
+          </div>
+
+          <!-- Desktop & Mobile -->
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-desktop text-yellow-400"></i>
+              </div>
+              <h3 class="font-bold text-lg">Desktop & Mobile</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Electron.js</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Desktop Apps</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >PWA</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Cross-Platform</span
+              >
+            </div>
+          </div>
+
+          <!-- DevOps & Tools -->
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-cloud text-cyan-400"></i>
+              </div>
+              <h3 class="font-bold text-lg">DevOps & Tools</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Docker</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Git / GitHub</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >CI/CD</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >AWS</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Linux</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Nginx</span
+              >
+            </div>
+          </div>
+
+          <!-- Databases & E-Commerce -->
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-database text-orange-400"></i>
+              </div>
+              <h3 class="font-bold text-lg">Database & E-Commerce</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >MySQL</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >PostgreSQL</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >MongoDB</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Redis</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Shopify</span
+              >
+              <span
+                class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm text-gray-300 border border-gray-700"
+                >Stripe</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== PROJECTS ======== -->
+    <section id="projects" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto reveal">
+        <div class="text-center mb-14">
+          <span class="badge bg-blue-600/10 text-blue-400 mb-4">Portfolio</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3">
+            Featured <span class="gradient-text">Projects</span>
+          </h2>
+          <p class="text-gray-500 mt-3 max-w-2xl mx-auto">
+            A selection of projects I've built — from AI-powered applications to
+            enterprise platforms.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-robot text-purple-400"></i>
+              </div>
+              <span class="badge bg-purple-500/20 text-purple-300">AI</span>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              AI Chatbot Integration
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Implemented an AI-driven chatbot using OpenAI API to enhance
+              customer interactions in Laravel applications with context-aware
+              responses.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Laravel</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >OpenAI</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Vue.js</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-brands fa-shopify text-green-400"></i>
+              </div>
+              <span class="badge bg-green-500/20 text-green-300"
+                >E-Commerce</span
+              >
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              Shopify Customer Portal
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A full-featured dashboard for Shopify customers to manage orders,
+              track shipments, and handle returns seamlessly.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Shopify</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Laravel</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Vue.js</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-desktop text-yellow-400"></i>
+              </div>
+              <span class="badge bg-yellow-500/20 text-yellow-300"
+                >Desktop</span
+              >
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              Meeting Recorder App
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              An Electron-based desktop app for recording meetings with both mic
+              and speaker audio, with AI-powered transcription.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Electron.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Node.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >AI</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-message text-blue-400"></i>
+              </div>
+              <span class="badge bg-blue-500/20 text-blue-300">Marketing</span>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              SMS & WhatsApp Marketing
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Marketing automation tool for sending bulk messages via SMS &
+              WhatsApp with campaign analytics and audience segmentation.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Laravel</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Vue.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Twilio</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-book-open text-pink-400"></i>
+              </div>
+              <span class="badge bg-pink-500/20 text-pink-300">Publishing</span>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              Interactive Flipbook
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Built an interactive digital Flipbook application using Vue.js for
+              publishing companies with page-turn animations.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Vue.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >CSS3</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Canvas</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-teal-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-house text-teal-400"></i>
+              </div>
+              <span class="badge bg-teal-500/20 text-teal-300">Platform</span>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              Real Estate Platform
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A comprehensive real estate management platform with property
+              listings, virtual tours, and agent dashboards.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Laravel</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Vue.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >MySQL</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow group md:col-span-2 lg:col-span-3"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center"
+              >
+                <i class="fa-solid fa-layer-group text-indigo-400"></i>
+              </div>
+              <span class="badge bg-indigo-500/20 text-indigo-300"
+                >Multi-Platform</span
+              >
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 group-hover:text-blue-400 transition"
+            >
+              Multiple Electron Applications
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Built various Electron.js desktop applications including offline
+              data processing tools, screen recording software, automation bots,
+              and AI-assisted document analyzers.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Electron.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >Node.js</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >SQLite</span
+              >
+              <span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded"
+                >AI</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== LIVE WORK ======== -->
+    <section id="live-work" class="py-24 px-6 bg-gray-900/50">
+      <div class="max-w-6xl mx-auto reveal">
+        <div class="text-center mb-14">
+          <span class="badge bg-green-600/10 text-green-400 mb-4"
+            >Live & Deployed</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold mt-3">
+            Production <span class="gradient-text">Applications</span>
+          </h2>
+          <p class="text-gray-500 mt-3 max-w-2xl mx-auto">
+            Real-world applications currently serving users in production. Click
+            to visit live.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <a
+            href="https://portal.mytravelad.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-plane text-blue-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  MyTravelAd Portal
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Travel advertising platform</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://doctorfindy.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-stethoscope text-red-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  DoctorFindy
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Healthcare discovery platform</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://new.akidwa.ie/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-people-group text-green-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  AkiDwA
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Migrant women network</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://beinguniquefurniture.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-couch text-amber-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  Being Unique Furniture
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">E-commerce furniture store</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://www.kempinski.com/en"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-hotel text-yellow-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  Kempinski Hotels
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Luxury hotel chain platform</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://tit.iphasetech.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-microchip text-cyan-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  iPhase Tech
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Technology solutions platform</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://mehrschool.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-graduation-cap text-indigo-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  Mehr School
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Educational institution</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://hyundaimeanews.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-newspaper text-sky-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  Hyundai MEA News
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Automotive news platform</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+
+          <a
+            href="https://iras.altamsahtourism.com/"
+            target="_blank"
+            rel="noopener"
+            class="bg-gray-900 border border-gray-800 rounded-2xl p-5 card-glow group flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fa-solid fa-earth-americas text-rose-400 text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h4
+                  class="font-bold group-hover:text-blue-400 transition truncate"
+                >
+                  IRAS Tourism
+                </h4>
+                <span class="live-dot flex-shrink-0"></span>
+              </div>
+              <p class="text-gray-500 text-sm">Tourism management system</p>
+            </div>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-gray-600 group-hover:text-blue-400 ml-auto transition"
+            ></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== CONTACT ======== -->
+    <section id="contact" class="py-24 px-6 relative">
+      <div class="absolute top-0 left-0 w-full h-full">
+        <div
+          class="absolute top-20 right-20 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-20 left-20 w-72 h-72 bg-purple-600/5 rounded-full blur-3xl"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto relative reveal">
+        <div class="text-center mb-12">
+          <span class="badge bg-blue-600/10 text-blue-400 mb-4"
+            >Get In Touch</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold mt-3">
+            Let's Build Something <span class="gradient-text">Amazing</span>
+          </h2>
+          <p class="text-gray-500 mt-3 max-w-xl mx-auto">
+            I'm always open to new opportunities, collaborations, and exciting
+            projects. Feel free to reach out!
+          </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 md:p-12">
+          <!-- Primary CTA -->
+          <div class="text-center mb-10">
+            <a
+              href="mailto:umerdev228@gmail.com"
+              class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-full text-white font-semibold text-lg transition shadow-lg shadow-blue-600/25 animate-pulse-glow"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              umerdev228@gmail.com
+            </a>
+          </div>
+
+          <!-- Social links -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a
+              href="https://github.com/umerdev228"
+              target="_blank"
+              rel="noopener"
+              class="flex flex-col items-center gap-2 bg-gray-800 hover:bg-gray-750 border border-gray-700 hover:border-gray-600 rounded-2xl p-5 transition group"
+            >
+              <i
+                class="fa-brands fa-github text-2xl group-hover:text-white text-gray-400 transition"
+              ></i>
+              <span class="text-sm font-medium">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/umer-web-developer/"
+              target="_blank"
+              rel="noopener"
+              class="flex flex-col items-center gap-2 bg-gray-800 hover:bg-gray-750 border border-gray-700 hover:border-blue-500 rounded-2xl p-5 transition group"
+            >
+              <i
+                class="fa-brands fa-linkedin text-2xl group-hover:text-blue-400 text-gray-400 transition"
+              ></i>
+              <span class="text-sm font-medium">LinkedIn</span>
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~01821b9705dd1d1efb"
+              target="_blank"
+              rel="noopener"
+              class="flex flex-col items-center gap-2 bg-gray-800 hover:bg-gray-750 border border-gray-700 hover:border-green-500 rounded-2xl p-5 transition group"
+            >
+              <i
+                class="fa-brands fa-upwork text-2xl group-hover:text-green-400 text-gray-400 transition"
+              ></i>
+              <span class="text-sm font-medium">Upwork</span>
+            </a>
+            <a
+              href="https://www.fiverr.com/umer_dev"
+              target="_blank"
+              rel="noopener"
+              class="flex flex-col items-center gap-2 bg-gray-800 hover:bg-gray-750 border border-gray-700 hover:border-green-500 rounded-2xl p-5 transition group"
+            >
+              <i
+                class="fa-brands fa-fiverr text-2xl group-hover:text-green-400 text-gray-400 transition"
+              ></i>
+              <span class="text-sm font-medium">Fiverr</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="border-t border-gray-800 py-8 px-6">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500"
+      >
+        <p>&copy; 2026 Muhammad Umer. All rights reserved.</p>
+        <p>
+          Built with
+          <i class="fa-solid fa-heart text-red-400 text-xs"></i> using Laravel,
+          Vue.js & AI
+        </p>
+      </div>
+    </footer>
+
+    <!-- ======== SCRIPTS ======== -->
+    <script>
+      // Typing effect with character-by-character animation
+      const roles = [
+        "Full Stack Developer",
+        "Laravel Expert",
+        "Vue.js Developer",
+        "AI Engineer",
+        "Shopify App Developer",
+        "Electron.js Developer",
+      ];
+      let roleIdx = 0,
+        charIdx = 0,
+        isDeleting = false;
+      const typingEl = document.getElementById("typing");
+
+      function typeEffect() {
+        const current = roles[roleIdx];
+        if (isDeleting) {
+          typingEl.textContent = current.substring(0, charIdx--);
+          if (charIdx < 0) {
+            isDeleting = false;
+            roleIdx = (roleIdx + 1) % roles.length;
+            setTimeout(typeEffect, 400);
+            return;
+          }
+          setTimeout(typeEffect, 40);
+        } else {
+          typingEl.textContent = current.substring(0, charIdx++);
+          if (charIdx > current.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1800);
+            return;
+          }
+          setTimeout(typeEffect, 80);
+        }
+      }
+      typeEffect();
+
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("active");
+              revealObserver.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      reveals.forEach((el) => revealObserver.observe(el));
+
+      // Counter animation
+      const counters = document.querySelectorAll(".counter");
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const target = +e.target.getAttribute("data-target");
+              let count = 0;
+              const increment = target / 40;
+              const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                  e.target.textContent = target + "+";
+                  clearInterval(timer);
+                } else {
+                  e.target.textContent = Math.ceil(count) + "+";
+                }
+              }, 40);
+              counterObserver.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      counters.forEach((el) => counterObserver.observe(el));
+
+      // Navbar shadow on scroll
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          nav.classList.add("shadow-lg");
+        } else {
+          nav.classList.remove("shadow-lg");
+        }
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll("#mobileMenu a").forEach((a) => {
+        a.addEventListener("click", () =>
+          document.getElementById("mobileMenu").classList.remove("open"),
+        );
+      });
+    </script>
+  </body>
 </html>
