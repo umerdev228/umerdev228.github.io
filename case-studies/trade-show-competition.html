@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: Trade Show Competition App | Muhammad Umer</title>
+    <meta name="description" content="How I built the QR-based Grand Tour competition for Automechanika Dubai 2025: participant app, judge scoring, live big-screen leaderboards and an admin back office." />
+    <meta property="og:title" content="Case Study: QR Competition App for Automechanika Dubai" />
+    <meta property="og:description" content="Participant app, judge scoring and live big-screen leaderboards for a major Dubai trade show." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="case-study.css" />
+  </head>
+  <body class="bg-gray-950 text-gray-100">
+    <nav class="nav-glass fixed top-0 inset-x-0 z-50">
+      <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-bold text-lg"><span class="gradient-text">Muhammad Umer</span></a>
+        <a href="../index.html#projects" class="text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i>All projects</a>
+      </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 bg-dots">
+      <div class="max-w-5xl mx-auto">
+        <span class="badge bg-yellow-500/20 text-yellow-300">Case study · Events &amp; exhibitions</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-5 leading-tight">
+          A QR competition that turned a Dubai trade show into a <span class="gradient-text">live game</span>
+        </h1>
+        <p class="text-gray-400 text-lg mt-5 max-w-3xl">
+          The "Grand Tour" for Automechanika Dubai 2025: visitors scanned stations around the venue, took on
+          quizzes and hands-on challenges, were scored by judges, and watched themselves climb live leaderboards
+          on the show's big screens.
+        </p>
+        <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          <div class="fact"><dt>Role</dt><dd>Lead developer</dd></div>
+          <div class="fact"><dt>Contribution</dt><dd>210+ commits, top contributor</dd></div>
+          <div class="fact"><dt>Apps</dt><dd>Participant, judge, screens, admin</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Laravel · Vue 3 · Socket.io · AWS</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <main class="px-6 pb-24">
+      <div class="max-w-5xl mx-auto space-y-16">
+        <section>
+          <h2 class="section-title">The challenge</h2>
+          <p class="prose-p">
+            The organisers wanted visitors to explore the whole exhibition floor, not just the first few stands.
+            That needed a game that worked on any phone without an app download, let staff judge physical
+            challenges on the spot, and kept the crowd engaged with results that updated in real time on large
+            screens. It had to stay reliable for the full run of a busy trade show.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section-title">What I built</h2>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div class="card">
+              <h3><i class="fa-solid fa-mobile-screen text-blue-400"></i> Participant app (mobile web)</h3>
+              <ul>
+                <li>Registration and a personal dashboard, no app install</li>
+                <li>QR scanner for stations around the venue, with scan history and a location map</li>
+                <li>Multi-phase challenges: quizzes, "what's that sound" audio rounds, fault detection, camera capture</li>
+                <li>Photo capture, gallery and social sharing</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-gavel text-yellow-400"></i> Judge app</h3>
+              <ul>
+                <li>Judges scan a participant's QR to open their attempt</li>
+                <li>Timing and grading for physical and digital challenges</li>
+                <li>Scores go straight to the live leaderboards</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-tv text-cyan-400"></i> Big-screen leaderboards</h3>
+              <ul>
+                <li>Overall and per-challenge rankings</li>
+                <li>Screen layouts with and without a background video loop</li>
+                <li>Updates pushed in real time over Socket.io, no page refresh</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-sliders text-purple-400"></i> Admin back office</h3>
+              <ul>
+                <li>Challenge builder: questions, ordering, time-based scoring, preview</li>
+                <li>Printable QR codes for stations with scan analytics</li>
+                <li>Photo moderation, judge and participant management, score recalculation</li>
+                <li>Reports and exports: daily and event winners, challenge winners, scans, participant stats</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">How it works</h2>
+          <div class="flow">
+            <div class="node"><i class="fa-solid fa-qrcode"></i><span>Visitor phone<br /><small>Vue 3 web app</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-brands fa-laravel"></i><span>Laravel API<br /><small>scoring, MySQL, Redis</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-solid fa-bolt"></i><span>Socket.io server<br /><small>Node.js, PM2</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-solid fa-tv"></i><span>Venue screens<br /><small>live leaderboards</small></span></div>
+          </div>
+          <p class="prose-p mt-6">
+            Laravel owns the rules and scores. Every scan, answer or judge grade is saved first, then the Node.js
+            Socket.io server pushes the change to every open leaderboard screen. Leaderboards are cached, so a
+            crowd hitting refresh doesn't hit the database. It runs on AWS with PM2 keeping the real-time
+            server alive.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section-title">Why it matters for your event</h2>
+          <div class="grid md:grid-cols-3 gap-5">
+            <div class="card"><h3>Footfall across the floor</h3><p>QR stations give visitors a reason to visit every zone, not just the entrance.</p></div>
+            <div class="card"><h3>Leads you can use</h3><p>Registrations, scans and results export cleanly for sponsors and follow-up.</p></div>
+            <div class="card"><h3>Reusable</h3><p>Challenges, stations and screens are set up in the admin, so the same platform can run the next show.</p></div>
+          </div>
+        </section>
+
+        <section class="cta">
+          <h2 class="text-2xl md:text-3xl font-bold">Planning an activation or exhibition?</h2>
+          <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+            I build QR games, live leaderboards, kiosks and lead capture for agencies in the UAE and Saudi Arabia,
+            including white-label.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3 mt-6">
+            <a class="btn-primary" href="https://wa.me/923126020228" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp me</a>
+            <a class="btn-ghost" href="mailto:umerdev228@gmail.com"><i class="fa-solid fa-envelope"></i> umerdev228@gmail.com</a>
+          </div>
+        </section>
+
+        <nav class="more">
+          <a href="booking-saas.html">Next: Salon &amp; coach booking SaaS <i class="fa-solid fa-arrow-right"></i></a>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>

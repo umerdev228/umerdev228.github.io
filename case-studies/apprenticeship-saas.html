@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: Apprenticeship Management SaaS | Muhammad Umer</title>
+    <meta name="description" content="A multi-tenant Laravel 12 SaaS for UK apprenticeship and T-Level providers: 10+ user portals, compliance workflows, evidence and EPA exports, and a two-way CRM sync." />
+    <meta property="og:title" content="Case Study: Multi-tenant Apprenticeship SaaS with Two-way CRM Sync" />
+    <meta property="og:description" content="Compliance-heavy vertical SaaS for UK training providers, built and led in Laravel 12." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="case-study.css" />
+  </head>
+  <body class="bg-gray-950 text-gray-100">
+    <nav class="nav-glass fixed top-0 inset-x-0 z-50">
+      <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-bold text-lg"><span class="gradient-text">Muhammad Umer</span></a>
+        <a href="../index.html#projects" class="text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i>All projects</a>
+      </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 bg-dots">
+      <div class="max-w-5xl mx-auto">
+        <span class="badge bg-indigo-500/20 text-indigo-300">Case study · Vertical SaaS</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-5 leading-tight">
+          Running UK apprenticeships on one platform, <span class="gradient-text">for every training provider</span>
+        </h1>
+        <p class="text-gray-400 text-lg mt-5 max-w-3xl">
+          A multi-tenant SaaS that UK apprenticeship and T-Level providers use to manage learners from
+          enrolment to end-point assessment: training plans, evidence, progress reviews, off-the-job hours,
+          employers, and a two-way sync with the company's CRM.
+        </p>
+        <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          <div class="fact"><dt>Role</dt><dd>Lead developer, owns the codebase</dd></div>
+          <div class="fact"><dt>Contribution</dt><dd>750+ commits</dd></div>
+          <div class="fact"><dt>Scale</dt><dd>10+ portals · 60+ scheduled jobs</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Laravel 12 · PHP 8.2 · MySQL</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <main class="px-6 pb-24">
+      <div class="max-w-5xl mx-auto space-y-16">
+        <section>
+          <h2 class="section-title">The challenge</h2>
+          <p class="prose-p">
+            Apprenticeship funding in the UK depends on evidence: training plans mapped to official knowledge,
+            skills and behaviours, regular progress reviews, logged off-the-job hours, and safeguarding checks.
+            Providers were tracking this across documents and spreadsheets. Each provider needed its own isolated
+            data and branding, and the sales team's CRM had to stay in step with what was actually happening to
+            each learner.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section-title">What I built</h2>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div class="card">
+              <h3><i class="fa-solid fa-users text-indigo-400"></i> Portals for every role</h3>
+              <ul>
+                <li>Admin, centre manager, coach or tutor, learner, T-Level learner, employer, line manager, quality assurer, CRM staff</li>
+                <li>Role impersonation so support can see exactly what a user sees</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-clipboard-check text-green-400"></i> Compliance workflows</h3>
+              <ul>
+                <li>Training plans mapped to official standards and KSBs</li>
+                <li>Progress reviews covering safeguarding, Prevent, British Values, and health and safety, with overdue reminders</li>
+                <li>Off-the-job hours, attendance, T-Level timecards with approval</li>
+                <li>Evidence PDF and end-point assessment exports</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-server text-cyan-400"></i> Multi-tenant platform</h3>
+              <ul>
+                <li>Provision, suspend and activate tenants, each with its own database</li>
+                <li>Database cloning plus schema compare and drift checks across tenants</li>
+                <li>Master email templates and defaults pushed to every tenant</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-arrows-rotate text-yellow-400"></i> Two-way CRM sync</h3>
+              <ul>
+                <li>Learner statuses, product totals per account, employers and line managers flow both ways</li>
+                <li>Contacts and accounts import from the CRM</li>
+                <li>Sync exclusions for records that shouldn't move, and recovery when a sync is paused</li>
+                <li>A comparison command that finds drift before users notice</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">How it works</h2>
+          <div class="flow">
+            <div class="node"><i class="fa-solid fa-building"></i><span>Training provider<br /><small>own tenant database</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-brands fa-laravel"></i><span>Laravel 12 app<br /><small>10+ portals</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-solid fa-clock"></i><span>Scheduled jobs<br /><small>60+ reports, reminders, syncs</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrows-left-right"></i></div>
+            <div class="node"><i class="fa-solid fa-address-book"></i><span>CRM<br /><small>two-way sync</small></span></div>
+          </div>
+          <p class="prose-p mt-6">
+            Each provider runs on its own database, managed from a central admin. Heavy work (reports, reminders,
+            exports and the CRM sync) runs in the background through more than sixty scheduled jobs, so the app
+            stays fast during the day. Schema drift checks keep every tenant database on the same version after
+            each release.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section-title">What this means for your product</h2>
+          <div class="grid md:grid-cols-3 gap-5">
+            <div class="card"><h3>Audit-ready</h3><p>Compliance evidence is captured as people work, not assembled the week before an inspection.</p></div>
+            <div class="card"><h3>One source of truth</h3><p>Operations and sales see the same learner status, because the CRM sync runs both ways.</p></div>
+            <div class="card"><h3>Long-term ownership</h3><p>I've led this product through continuous releases, not a one-off build.</p></div>
+          </div>
+        </section>
+
+        <section class="cta">
+          <h2 class="text-2xl md:text-3xl font-bold">Building a compliance-heavy or multi-tenant SaaS?</h2>
+          <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+            I design and build multi-tenant platforms, complex workflows and CRM integrations, and stay on to run them.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3 mt-6">
+            <a class="btn-primary" href="https://wa.me/923126020228" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp me</a>
+            <a class="btn-ghost" href="mailto:umerdev228@gmail.com"><i class="fa-solid fa-envelope"></i> umerdev228@gmail.com</a>
+          </div>
+        </section>
+
+        <nav class="more">
+          <a href="trade-show-competition.html">Next: Trade show competition app <i class="fa-solid fa-arrow-right"></i></a>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>

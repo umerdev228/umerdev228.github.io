@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: Salon &amp; Coach Booking SaaS | Muhammad Umer</title>
+    <meta name="description" content="A multi-tenant booking platform for salons and coaches: availability engine, Stripe deposits, WhatsApp inbox and campaigns, Google Calendar sync, POS, inventory and a public marketplace. Next.js, NestJS, Prisma, PostgreSQL." />
+    <meta property="og:title" content="Case Study: Multi-tenant Booking SaaS (Next.js + NestJS)" />
+    <meta property="og:description" content="Bookings, payments, WhatsApp, POS, inventory and a marketplace in one platform." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="case-study.css" />
+  </head>
+  <body class="bg-gray-950 text-gray-100">
+    <nav class="nav-glass fixed top-0 inset-x-0 z-50">
+      <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-bold text-lg"><span class="gradient-text">Muhammad Umer</span></a>
+        <a href="../index.html#projects" class="text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i>All projects</a>
+      </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 bg-dots">
+      <div class="max-w-5xl mx-auto">
+        <span class="badge bg-pink-500/20 text-pink-300">Case study · Booking SaaS</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-5 leading-tight">
+          One platform to run a salon: <span class="gradient-text">bookings, payments, WhatsApp and stock</span>
+        </h1>
+        <p class="text-gray-400 text-lg mt-5 max-w-3xl">
+          A multi-tenant SaaS for salons, clinics and coaches. Customers book online and pay a deposit, the
+          business chats with them on WhatsApp, and the same system runs the till, staff shifts, inventory and
+          finance. Businesses also get listed on a public marketplace.
+        </p>
+        <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          <div class="fact"><dt>Role</dt><dd>Core developer</dd></div>
+          <div class="fact"><dt>Contribution</dt><dd>800+ commits</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>38 API modules</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Next.js · NestJS · Prisma · Postgres</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <main class="px-6 pb-24">
+      <div class="max-w-5xl mx-auto space-y-16">
+        <section>
+          <h2 class="section-title">The challenge</h2>
+          <p class="prose-p">
+            Small service businesses usually juggle a booking app, a payment link, WhatsApp on someone's phone,
+            a separate till and a spreadsheet for stock. No-shows cost them money, and nothing talks to anything
+            else. The goal was one product that handles the whole customer journey, from discovery to booking
+            to payment to follow-up, for many businesses at once, each with its own staff, hours and rules.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section-title">What I built</h2>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div class="card">
+              <h3><i class="fa-solid fa-calendar-check text-pink-400"></i> Booking engine</h3>
+              <ul>
+                <li>Availability from working hours, staff shifts, leave and existing bookings</li>
+                <li>Google Calendar busy-time respected, so staff are never double-booked</li>
+                <li>Booking state machine, packages and offers</li>
+                <li>Customers reschedule or cancel from a secure link, no login needed</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-brands fa-stripe text-indigo-400"></i> Payments</h3>
+              <ul>
+                <li>Stripe pay-in-salon, deposit or full prepayment, set per business</li>
+                <li>Webhooks keep booking and payment status in step</li>
+                <li>Finance: cash register, invoices, refunds, commissions, payouts and reports</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-brands fa-whatsapp text-green-400"></i> WhatsApp</h3>
+              <ul>
+                <li>Shared team inbox on the official WhatsApp Cloud API</li>
+                <li>Approved message templates and broadcast campaigns</li>
+                <li>Automations such as birthday messages</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-cash-register text-yellow-400"></i> Operations</h3>
+              <ul>
+                <li>POS, products, inventory, purchase orders, deliveries and stocktakes</li>
+                <li>Staff attendance by kiosk or QR, with shifts and leave</li>
+                <li>Customer CRM with import and duplicate merge, reviews, reports</li>
+                <li>Public marketplace by place and category, plus a coach directory</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">How it works</h2>
+          <div class="flow">
+            <div class="node"><i class="fa-solid fa-globe"></i><span>Next.js web<br /><small>dashboard + public pages</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-solid fa-cubes"></i><span>NestJS API<br /><small>38 modules, tenant-isolated</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="node"><i class="fa-solid fa-database"></i><span>PostgreSQL<br /><small>Prisma ORM</small></span></div>
+            <div class="arrow"><i class="fa-solid fa-arrows-left-right"></i></div>
+            <div class="node"><i class="fa-solid fa-plug"></i><span>Integrations<br /><small>Stripe · WhatsApp · Google</small></span></div>
+          </div>
+          <p class="prose-p mt-6">
+            A TypeScript monorepo: Next.js for the business dashboard and public booking pages, NestJS for a
+            modular API, and Prisma on PostgreSQL. Every query is scoped to its business, so tenants never see
+            each other's data. External services (Stripe, the WhatsApp Cloud API, Google Calendar) talk back
+            through webhooks, so payments and messages update bookings without anyone refreshing.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section-title">What this means for your product</h2>
+          <div class="grid md:grid-cols-3 gap-5">
+            <div class="card"><h3>Fewer no-shows</h3><p>Deposits and self-service reschedule links are built into the booking flow.</p></div>
+            <div class="card"><h3>Customers where they are</h3><p>WhatsApp is the main channel in the Gulf and South Asia, and it's part of the product, not an add-on.</p></div>
+            <div class="card"><h3>Built to scale</h3><p>Multi-tenant from day one, so adding the next hundred businesses is configuration, not code.</p></div>
+          </div>
+        </section>
+
+        <section class="cta">
+          <h2 class="text-2xl md:text-3xl font-bold">Need a booking, payments or WhatsApp platform?</h2>
+          <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+            I build multi-tenant SaaS end to end: architecture, payments, integrations and launch.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3 mt-6">
+            <a class="btn-primary" href="https://wa.me/923126020228" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp me</a>
+            <a class="btn-ghost" href="mailto:umerdev228@gmail.com"><i class="fa-solid fa-envelope"></i> umerdev228@gmail.com</a>
+          </div>
+        </section>
+
+        <nav class="more">
+          <a href="apprenticeship-saas.html">Next: Apprenticeship management SaaS <i class="fa-solid fa-arrow-right"></i></a>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>
